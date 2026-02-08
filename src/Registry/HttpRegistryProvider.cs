@@ -30,7 +30,7 @@ public sealed class HttpRegistryProvider : IRegistryProvider, IDisposable
 
     public async Task<byte[]> GetFileAsync(string componentName, string fileName, CancellationToken cancellationToken = default)
     {
-        var url = $"{_baseUrl}/components/{componentName}/{fileName}";
+        var url = $"{_baseUrl}/Registry/{componentName}/{fileName}";
 
         using var response = await _httpClient.GetAsync(url, cancellationToken);
         response.EnsureSuccessStatusCode();

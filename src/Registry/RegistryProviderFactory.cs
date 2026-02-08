@@ -2,7 +2,7 @@ namespace LumexUI.Cli.Registry;
 
 public static class RegistryProviderFactory
 {
-    public const string DefaultRegistry = "https://raw.githubusercontent.com/LumexUI/composable/main";
+    public const string DefaultRegistry = "https://raw.githubusercontent.com/LumexUI/composable/refs/heads/master/app/";
 
     public static IRegistryProvider Create(string? registry)
     {
