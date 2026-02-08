@@ -122,37 +122,27 @@ The important part is not the API surface — it's that:
 
 There is no "correct" usage beyond what makes sense for your app.
 
-## Trying it out
+## Quick start
 
-There are two equivalent ways to use LumexUI (Experimental).
+1. Clone the repo and open the project
+2. Install a small CLI tool that automates copying files into your project
 
-### 1) Manual copy (canonical approach)
-
-1. Open the app/Registry/ folder in this repo
-2. Copy the component folder you need (e.g. Field/)
-3. Paste it into your Blazor project
-4. Adjust namespaces if needed
-5. Use and modify freely
-
-This is the core model.
-Everything else is optional.
-
-### 2) Optional helper (convenience only)
-
-There is a small helper tool that automates copying files:
-
-```bash
-dotnet tool install --global LumexUI.Cli
-lumex add Button -o ./Components
+```sh
+dotnet tool install --global LumexUI.Cli   # installs the CLI tool globally
 ```
 
-The helper:
+3. Start adding components
 
-- only copies files
+```sh
+lumex list                                 # list all components in the registry
+lumex add <component1> <component2>        # add components from the registry into the project
+```
+
+The CLI tool:
+
+- only copies source files (you own them)
 - adds no runtime dependency
-- can be deleted immediately after use
-
-If the helper disappeared tomorrow, nothing would break.
+- can be deleted anytime (that would require you to manually copy-paste the source files in the future)
 
 ## Tailwind CSS
 
@@ -167,7 +157,7 @@ You are expected to adapt classes to your own design system.
 
 ## Status
 
-Experimental.
+**⚠️ Experimental ⚠️**
 
 This is an exploration, not a committed roadmap.
 
@@ -179,7 +169,7 @@ Depending on whether this approach resonates and proves sustainable, the project
 
 ## Feedback (important)
 
-I’m not looking for:
+I'm not looking for:
 
 - requests for missing components
 - parity with existing libraries
@@ -205,4 +195,4 @@ This project exists to answer one question:
 
 > Is a source-first, composable UI approach viable in the Blazor ecosystem?
 
-If the answer is "no", that’s still a valuable outcome.
+If the answer is "no", that's still a valuable outcome.
