@@ -1,3 +1,4 @@
 <Solution>
-  <Project Path="LumexUI.Composable/LumexUI.Composable.csproj" />
+  <Project Path="app/LumexUI.Composable.csproj" />
+  <Project Path="src/LumexUI.Cli.csproj" Id="e0abe382-1dda-4949-a122-181f487e7eed" />
 </Solution>
