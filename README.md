@@ -124,8 +124,8 @@ There is no "correct" usage beyond what makes sense for your app.
 
 ## Quick start
 
-1. Clone the repo and open the project
-2. Install a small CLI tool that automates copying files into your project
+1. Clone the repo and open it (don't run; it won't compile because we haven't added necessary components yet)
+2. Install a small CLI tool to copy components into the project
 
 ```sh
 dotnet tool install --global LumexUI.Cli   # installs the CLI tool globally
@@ -134,8 +134,7 @@ dotnet tool install --global LumexUI.Cli   # installs the CLI tool globally
 3. Start adding components
 
 ```sh
-lumex list                                 # list all components in the registry
-lumex add <component1> <component2>        # add components from the registry into the project
+lumex add Button Dialog Input Field -o ./Components # this will add all 4 components from the registry
 ```
 
 The CLI tool:
