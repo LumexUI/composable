@@ -1,0 +1,29 @@
+﻿@namespace LumexUI.Composable.Registry
+
+@using TailwindMerge
+
+<label class="@TwMerge.Merge( ClassName, Class )"
+       data-slot="field-label"
+       @attributes="@AdditionalAttributes">
+    @ChildContent
+</label>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    [Parameter] public string? Class { get; set; }
+
+    [Parameter( CaptureUnmatchedValues = true )]
+    public IReadOnlyDictionary<string, object>? AdditionalAttributes { get; set; }
+
+    [Inject] public TwMerge TwMerge { get; set; } = default!;
+
+    /*
+     * ----------------------------------------------------------------------------------
+     * Styles
+     * ----------------------------------------------------------------------------------
+     */
+
+    private string? ClassName => new ElementClass( "has-data-checked:bg-primary/5 has-data-checked:border-primary/30 dark:has-data-checked:border-primary/20 dark:has-data-checked:bg-primary/10 gap-2 group-data-[disabled=true]/field:opacity-50 has-[>[data-slot=field]]:rounded-lg has-[>[data-slot=field]]:border *:data-[slot=field]:p-2.5 group/field-label peer/field-label flex w-fit leading-snug" )
+        .Add( "has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col" );
+}

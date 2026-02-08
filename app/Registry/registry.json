@@ -1,0 +1,40 @@
+{
+  "components": [
+    {
+      "name": "Button",
+      "files": [ "Button.razor", "ButtonVariant.cs", "ButtonSize.cs" ]
+    },
+    {
+      "name": "Dialog",
+      "files": [
+        "Dialog.razor",
+        "DialogClose.razor",
+        "DialogContet.razor",
+        "DialogDescription.razor",
+        "DialogFooter.razor",
+        "DialogHeader.razor",
+        "DialogTitle.razor",
+        "DialogTrigger.razor"
+      ]
+    },
+    {
+      "name": "Field",
+      "files": [
+        "Field.razor",
+        "FieldContent.razor",
+        "FieldDescription.razor",
+        "FieldError.razor",
+        "FieldGroup.razor",
+        "FieldLabel.razor",
+        "FieldLegend.razor",
+        "FieldSet.razor",
+        "FieldTitle.razor",
+        "FieldOrientation.cs"
+      ]
+    },
+    {
+      "name": "Input",
+      "files": [ "Input.razor" ]
+    }
+  ]
+}

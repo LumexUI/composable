@@ -1,0 +1,29 @@
+﻿@namespace LumexUI.Composable.Registry
+
+@using TailwindMerge
+
+<div role="alert"
+     class="@TwMerge.Merge( ClassName, Class )"
+     data-slot="field-error"
+     @attributes="@AdditionalAttributes">
+    @ChildContent
+</div>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    [Parameter] public string? Class { get; set; }
+
+    [Parameter( CaptureUnmatchedValues = true )]
+    public IReadOnlyDictionary<string, object>? AdditionalAttributes { get; set; }
+
+    [Inject] public TwMerge TwMerge { get; set; } = default!;
+
+    /*
+     * ----------------------------------------------------------------------------------
+     * Styles
+     * ----------------------------------------------------------------------------------
+     */
+
+    private string? ClassName => new ElementClass( "text-destructive text-sm font-normal" );
+}

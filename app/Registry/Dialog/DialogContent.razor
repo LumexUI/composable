@@ -1,0 +1,60 @@
+﻿@namespace LumexUI.Composable.Registry
+
+@using TailwindMerge
+
+<dialog id="@Context.Id"
+        class="@TwMerge.Merge( ClassName, Class )"
+        data-slot="dialog-content"
+        @attributes="@AdditionalAttributes">
+    @ChildContent
+
+    @if( ShowCloseButton )
+    {
+        <Button type="button"
+                command="close"
+                commandfor="@Context.Id"
+                data-slot="dialog-close"
+                Size="@ButtonSize.IconSm"
+                Variant="@ButtonVariant.Ghost"
+                Class="absolute top-2 right-2">
+            ✕
+            <span class="sr-only">Close</span>
+        </Button>
+    }
+</dialog>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    [Parameter] public bool ShowCloseButton { get; set; } = true;
+
+    [Parameter] public string? Class { get; set; }
+
+    [Parameter( CaptureUnmatchedValues = true )]
+    public IReadOnlyDictionary<string, object>? AdditionalAttributes { get; set; }
+
+    [CascadingParameter] private Dialog Context { get; set; } = default!;
+
+    [Inject] public TwMerge TwMerge { get; set; } = default!;
+
+    protected override void OnInitialized()
+    {
+        if( Context is null )
+        {
+            throw new InvalidOperationException(
+                $"<{nameof( DialogContent )} /> must be used within a <{nameof( Dialog )} /> component."
+            );
+        }
+    }
+
+    /*
+     * ----------------------------------------------------------------------------------
+     * Styles
+     * ----------------------------------------------------------------------------------
+     */
+
+    private string? ClassName => new ElementClass( "bg-background data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 ring-foreground/10 grid max-w-[calc(100%-2rem)] gap-4 rounded-xl p-4 text-sm ring-1 duration-100 sm:max-w-sm fixed top-1/2 left-1/2 z-50 w-full -translate-x-1/2 -translate-y-1/2 outline-none" )
+        .Add( "open:grid open:animate-in open:fade-in open:zoom-in-95" )
+        .Add( "not-open:animate-out not-open:fade-out not-open:zoom-out-95" )
+        .Add( "backdrop:duration-100 backdrop:transition-opacity starting:backdrop:opacity-0 not-open:backdrop:opacity-0" );
+}

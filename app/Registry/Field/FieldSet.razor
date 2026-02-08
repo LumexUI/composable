@@ -1,0 +1,28 @@
+﻿@namespace LumexUI.Composable.Registry
+
+@using TailwindMerge
+
+<fieldset class="@TwMerge.Merge( ClassName, Class )"
+          data-slot="field-set"
+          @attributes="@AdditionalAttributes">
+    @ChildContent
+</fieldset>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    [Parameter] public string? Class { get; set; }
+
+    [Parameter( CaptureUnmatchedValues = true )]
+    public IReadOnlyDictionary<string, object>? AdditionalAttributes { get; set; }
+
+    [Inject] public TwMerge TwMerge { get; set; } = default!;
+
+    /*
+     * ----------------------------------------------------------------------------------
+     * Styles
+     * ----------------------------------------------------------------------------------
+     */
+
+    private string? ClassName => new ElementClass( "gap-4 has-[>[data-slot=checkbox-group]]:gap-3 has-[>[data-slot=radio-group]]:gap-3 flex flex-col" );
+}

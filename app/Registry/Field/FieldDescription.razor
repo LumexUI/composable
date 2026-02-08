@@ -1,0 +1,30 @@
+﻿@namespace LumexUI.Composable.Registry
+
+@using TailwindMerge
+
+<p class="@TwMerge.Merge( ClassName, Class )"
+   data-slot="field-description"
+   @attributes="@AdditionalAttributes">
+    @ChildContent
+</p>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    [Parameter] public string? Class { get; set; }
+
+    [Parameter( CaptureUnmatchedValues = true )]
+    public IReadOnlyDictionary<string, object>? AdditionalAttributes { get; set; }
+
+    [Inject] public TwMerge TwMerge { get; set; } = default!;
+
+    /*
+     * ----------------------------------------------------------------------------------
+     * Styles
+     * ----------------------------------------------------------------------------------
+     */
+
+    private string? ClassName => new ElementClass( "text-muted-foreground text-left text-sm [[data-variant=legend]+&]:-mt-1.5 leading-normal font-normal group-has-data-horizontal/field:text-balance" )
+        .Add( "last:mt-0 nth-last-2:-mt-1" )
+        .Add( "[&>a:hover]:text-primary [&>a]:underline [&>a]:underline-offset-4" );
+}

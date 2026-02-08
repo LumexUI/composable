@@ -1,0 +1,40 @@
+﻿@namespace LumexUI.Composable.Registry
+
+@using TailwindMerge
+
+<div class="@TwMerge.Merge( ClassName, Class )"
+     data-slot="dialog-header"
+     @attributes="@AdditionalAttributes">
+    @ChildContent
+</div>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    [Parameter] public string? Class { get; set; }
+
+    [Parameter( CaptureUnmatchedValues = true )]
+    public IReadOnlyDictionary<string, object>? AdditionalAttributes { get; set; }
+
+    [CascadingParameter] private Dialog Context { get; set; } = default!;
+
+    [Inject] public TwMerge TwMerge { get; set; } = default!;
+
+    protected override void OnInitialized()
+    {
+        if( Context is null )
+        {
+            throw new InvalidOperationException(
+                $"<{nameof( DialogHeader )} /> must be used within a <{nameof( Dialog )} /> component."
+            );
+        }
+    }
+
+    /*
+     * ----------------------------------------------------------------------------------
+     * Styles
+     * ----------------------------------------------------------------------------------
+     */
+
+    private string? ClassName => new ElementClass( "gap-2 flex flex-col" );
+}

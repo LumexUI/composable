@@ -1,0 +1,12 @@
+﻿@namespace LumexUI.Composable.Registry
+
+<CascadingValue TValue="Dialog" Value="@this" IsFixed="@true">
+    @ChildContent
+</CascadingValue>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    private static long _id;
+    internal string Id { get; } = $"dialog-{Interlocked.Increment( ref _id )}";
+}

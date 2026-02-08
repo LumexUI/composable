@@ -1,0 +1,23 @@
+﻿@namespace LumexUI.Composable.Registry
+@inherits Button
+
+<Button command="show-modal"
+        commandfor="@Context.Id"
+        data-slot="dialog-trigger"
+        @attributes="@AdditionalAttributes">
+    @ChildContent
+</Button>
+
+@code {
+    [CascadingParameter] private Dialog Context { get; set; } = default!;
+
+    protected override void OnInitialized()
+    {
+        if( Context is null )
+        {
+            throw new InvalidOperationException(
+                $"<{nameof( DialogTrigger )} /> must be used within a <{nameof( Dialog )} /> component."
+            );
+        }
+    }
+}
