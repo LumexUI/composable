@@ -9,7 +9,7 @@
       "files": [
         "Dialog.razor",
         "DialogClose.razor",
-        "DialogContet.razor",
+        "DialogContent.razor",
         "DialogDescription.razor",
         "DialogFooter.razor",
         "DialogHeader.razor",
