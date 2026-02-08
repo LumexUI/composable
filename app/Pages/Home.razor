@@ -1,3 +1,82 @@
 ﻿@page "/"
 
+<div class="m-10 space-y-8">
+    <h2 class="font-bold text-xl">Dialog demo</h2>
+    <hr />
 
+    <Dialog>
+        <DialogTrigger>Share</DialogTrigger>
+        <DialogContent Class="sm:max-w-md">
+            <DialogHeader>
+                <DialogTitle>Share link</DialogTitle>
+                <DialogDescription>
+                    Anyone who has this link will be able to view this.
+                </DialogDescription>
+            </DialogHeader>
+            <div class="flex items-center gap-2">
+                <div class="grid flex-1 gap-2">
+                    <label for="link" class="sr-only">Link</label>
+                    <Input id="link" readonly @bind-Value="@link" />
+                </div>
+            </div>
+            <DialogFooter Class="sm:justify-start">
+                <DialogClose>Close</DialogClose>
+            </DialogFooter>
+        </DialogContent>
+    </Dialog>
+</div>
+
+<div class="m-10 space-y-8">
+    <h2 class="font-bold text-xl">Button demo</h2>
+    <hr />
+
+    <div class="flex gap-2">
+        <Button Size="@ButtonSize.Xs">XSmall</Button>
+        <Button Size="@ButtonSize.Sm">Small</Button>
+        <Button Size="@ButtonSize.Md">Medium</Button>
+        <Button Size="@ButtonSize.Lg">Large</Button>
+        <Button Size="@ButtonSize.IconXs">❤️</Button>
+        <Button Size="@ButtonSize.IconSm">❤️</Button>
+        <Button Size="@ButtonSize.IconMd">❤️</Button>
+        <Button Size="@ButtonSize.IconLg">❤️</Button>
+    </div>
+
+    <div class="flex gap-2">
+        <Button Variant="@ButtonVariant.Primary">Primary</Button>
+        <Button Variant="@ButtonVariant.Outline">Outline</Button>
+        <Button Variant="@ButtonVariant.Secondary">Secondary</Button>
+        <Button Variant="@ButtonVariant.Ghost">Ghost</Button>
+        <Button Variant="@ButtonVariant.Destructive">Destructive</Button>
+        <Button Variant="@ButtonVariant.Link">Link</Button>
+    </div>
+</div>
+
+<div class="m-10 space-y-8">
+    <h2 class="font-bold text-xl">Field demo</h2>
+    <hr />
+
+    <FieldSet Class="w-full max-w-xs">
+        <FieldGroup>
+            <Field>
+                <FieldLabel for="username">Username</FieldLabel>
+                <Input @bind-Value="@username" id="username" type="text" placeholder="Max Leiter" />
+                <FieldDescription>
+                    Choose a unique username for your account.
+                </FieldDescription>
+            </Field>
+            <Field>
+                <FieldLabel for="password">Password</FieldLabel>
+                <FieldDescription>
+                    Must be at least 8 characters long.
+                </FieldDescription>
+                <Input @bind-Value="@password" id="password" type="password" placeholder="••••••••" />
+            </Field>
+        </FieldGroup>
+    </FieldSet>
+</div>
+
+@code {
+    private string? username;
+    private string? password;
+    private string? link = "https://lumexui.org/";
+}
