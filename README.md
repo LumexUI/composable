@@ -122,10 +122,12 @@ The important part is not the API surface — it's that:
 
 There is no "correct" usage beyond what makes sense for your app.
 
-## Quick start
+## Quick start (10 minutes)
 
-1. Clone the repo and open it (don't run; it won't compile because we haven't added necessary components yet)
-2. Install a small CLI tool to copy components into the project
+To evaluate the model quickly:
+
+1. Clone the repo and open it
+2. Install the CLI tool to copy components into the project
 
 ```sh
 dotnet tool install --global LumexUI.Cli   # installs the CLI tool globally
@@ -137,11 +139,15 @@ dotnet tool install --global LumexUI.Cli   # installs the CLI tool globally
 lumex add Button Dialog Input Field -o ./Components # this will add all 4 components from the registry
 ```
 
-The CLI tool:
+4. Use it in a page and experiment with composition
 
-- only copies source files (you own them)
+That's enough to understand the approach.
+
+The CLI:
+
+- only copies source files
 - adds no runtime dependency
-- can be deleted anytime (that would require you to manually copy-paste the source files in the future)
+- can be removed at any time
 
 ## Tailwind CSS
 
@@ -168,19 +174,20 @@ Depending on whether this approach resonates and proves sustainable, the project
 
 ## Feedback (important)
 
-I'm not looking for:
+This experiment only works if people actually try it.
 
-- requests for missing components
-- parity with existing libraries
-- feature checklists
+If you're willing to spend 10 minutes testing it in a throwaway project, I'd especially appreciate:
 
-I am looking for answers to these questions:
+- What felt awkward?
+- What felt surprisingly clean?
+- Did owning the source increase or decrease mental overhead?
+- Did the parts-as-components model feel natural in Razor?
 
-1. Does this composability model make sense in Blazor?
-2. Would you feel comfortable owning and modifying this code?
-3. Does this reduce or increase mental overhead for you?
+Even short notes are valuable.
+Please open an issue describing your experience — positive or negative.
 
-If you try it — even briefly — feedback is very welcome.
+I am not optimizing for feature count.
+I am trying to understand whether this model is viable in practice.
 
 ## Relationship to LumexUI (Classic)
 
@@ -194,4 +201,4 @@ This project exists to answer one question:
 
 > Is a source-first, composable UI approach viable in the Blazor ecosystem?
 
-If the answer is "no", that's still a valuable outcome.
+If the answer is "no", that's still a valuable outcome. But the only way to answer that is to try it.
