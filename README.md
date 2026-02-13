@@ -2,7 +2,7 @@
 
 **Composable, source-first UI patterns for Blazor.**
 
-LumexUI Composable is an exploration of a different way to build UI in Blazor — inspired by modern, composable approaches (like shadcn/ui), but adapted to the realities of .NET, Razor, and Tailwind CSS.
+LumexUI Composable is an exploration of a different way to build UI in Blazor — inspired by modern, composable approaches (like shadcn/ui), but adapted to the realities of .NET.
 
 This is not a full component library.
 This is not a replacement for MudBlazor, Radzen, or other Swiss-knife frameworks.
