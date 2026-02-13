@@ -145,7 +145,7 @@ That's enough to understand the approach.
 
 The CLI:
 
-- only copies source files
+- only copies source files 
 - adds no runtime dependency
 - can be removed at any time
 
@@ -181,7 +181,7 @@ If you're willing to spend 10 minutes testing it in a throwaway project, I'd esp
 - What felt awkward?
 - What felt surprisingly clean?
 - Did owning the source increase or decrease mental overhead?
-- Did the parts-as-components model feel natural in Razor?
+- Did the parts-as-components model feel natural in Blazor?
 
 Even short notes are valuable.
 Please open an issue describing your experience — positive or negative.
